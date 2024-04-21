@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing Page</title>
+    <link rel="stylesheet" href="Billing.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="billing-section">
+      <h1 class="billing-heading">Billing</h1>
+      <p class="billing-subheading">
+        Effortlessly handle your billing and invoices right here.
+      </p>
+
+      <div class="frame1">
+        <!-- Billing form -->
+        <div class="row">
+          <div class="col">
+            <label for="patientId">Patient ID:</label>
+            <input
+              type="text"
+              id="patientId"
+              name="patientId"
+              required
+              autofocus
+              maxlength="10"
+            />
+          </div>
+          <div class="col">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required maxlength="50" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="billingDate">Billing Date:</label>
+            <input type="date" id="billingDate" name="billingDate" required />
+          </div>
+          <div class="col">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="contactNo">Contact No.:</label>
+            <input
+              type="text"
+              id="contactNo"
+              name="contactNo"
+              pattern="[0-9]{10}"
+              required
+              maxlength="10"
+            />
+          </div>
+          <div class="col">
+            <label for="modeOfPayment">Mode of Payment:</label>
+            <select id="modeOfPayment" name="modeOfPayment" required>
+              <option value="">Select Payment Mode</option>
+              <option value="cash">Cash</option>
+              <option value="credit card">Credit Card</option>
+              <option value="upi">UPI</option>
+              <option value="netbanking">Net Banking</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="address">Address:</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              required
+              maxlength="100"
+            />
+          </div>
+          <div class="col">
+            <label for="description">Description:</label>
+            <select id="description" name="description" required>
+              <option value="">Select Description</option>
+              <option value="regular checkup">Regular Checkup</option>
+              <option value="surgery">Surgery</option>
+              <option value="emergency">Emergency</option>
+            </select>
+          </div>
+        </div>
+        <div class="submit-btn">
+          <button id="submitBtn">Submit</button>
+        </div>
+      </div>
+
+      <!-- Invoice section -->
+      <div class="invoice-section">
+        <h2>Invoice</h2>
+        <table id="invoiceTable">
+          <thead>
+            <tr>
+              <th>Invoice ID</th>
+              <th>Billing Date</th>
+              <th>Patient's Name</th>
+              <th>Amount</th>
+              <th>Print receipt</th>
+            </tr>
+          </thead>
+          <tbody id="invoiceTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var inputs = document.querySelectorAll(
+          '.frame1 input[type="text"], .frame1 input[type="date"], .frame1 input[type="number"], .frame1 select'
+        );
+        var submitBtn = document.getElementById("submitBtn");
+        var invoiceTableBody = document.getElementById("invoiceTableBody");
+        var invoiceId = 1; // Initial invoice ID
+
+        // Function to handle form submission
+        function handleSubmit(event) {
+          event.preventDefault();
+          var billingDate = document.getElementById("billingDate").value;
+          var name = document.getElementById("name").value;
+          var amount = document.getElementById("amount").value;
+
+          // Add the new row to the invoice table
+          var newRow = `
+                <tr>
+                    <td>${invoiceId}</td>
+                    <td>${billingDate}</td>
+                    <td>${name}</td>
+                    <td>${amount}</td>
+                    <td><button onclick="printInvoice(${invoiceId})">Print Receipt</button></td>
+                </tr>
+            `;
+          invoiceTableBody.innerHTML += newRow;
+
+          // Increment invoice ID
+          invoiceId++;
+
+          // Reset form fields
+          document.getElementById("billingDate").value = "";
+          document.getElementById("name").value = "";
+          document.getElementById("amount").value = "";
+          document.getElementById("patientId").value = "";
+          document.getElementById("contactNo").value = "";
+          document.getElementById("modeOfPayment").selectedIndex = 0;
+          document.getElementById("address").value = "";
+          document.getElementById("description").selectedIndex = 0;
+
+          alert("Form submitted successfully!");
+        }
+
+        // Function to handle printing invoice receipt
+        function printInvoice(invoiceId) {
+          var invoiceRow = document.querySelector(
+            `#invoiceTableBody tr:nth-child(${invoiceId})`
+          );
+          var invoiceDate = invoiceRow.cells[1].innerText;
+          var patientName = invoiceRow.cells[2].innerText;
+          var amount = invoiceRow.cells[3].innerText;
+
+          var receiptContent = `
+                <h3>Invoice ID: ${invoiceId}</h3>
+                <p>Billing Date: ${invoiceDate}</p>
+                <p>Patient's Name: ${patientName}</p>
+                <p>Amount: ${amount}</p>
+            `;
+          alert(receiptContent); // Replace with your printing logic
+        }
+
+        // Function to handle Enter key press
+        function handleEnterKey(event, index) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            var nextIndex = index + 1;
+            if (nextIndex < inputs.length) {
+              inputs[nextIndex].focus();
+            }
+          }
+        }
+
+        // Add event listeners to input fields
+        inputs.forEach(function (input, index) {
+          input.addEventListener("keydown", function (event) {
+            handleEnterKey(event, index);
+          });
+        });
+
+        // Add event listener to submit button
+        submitBtn.addEventListener("click", handleSubmit);
+      });
+    </script>
+  </body>
+</html>

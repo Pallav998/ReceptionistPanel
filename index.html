@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receptionist</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/e472ef0660.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h1>Receptionist Panel</h1>
+        <ul>
+          <li>
+            <a href="#" onclick="loadPage('home.html')">
+              <i class="fa-solid fa-house-user"></i>Home</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="loadPage('patientReg.html')">
+              <i class="fa-solid fa-address-card"></i>Patient Registration</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="loadPage('existingPatient.html')"
+              ><i class="fa-solid fa-user-group"></i>Existing Patient</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="loadPage('opdQueue.html')"
+              ><i class="fa-solid fa-layer-group"></i>OPD Queue</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="loadPage('billing.html')"
+              ><i class="fa-solid fa-file-invoice-dollar"></i>Billing</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="loadPage('prescription.html')"
+              ><i class="fa-solid fa-file-prescription"></i>Prescription</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="search-bar">
+          <p><i class="fa-solid fa-magnifying-glass"></i></p>
+          <p><i class="fa-solid fa-user"></i></p>
+        </div>
+        <hr />
+        <div class="sub-pages" id="sub-pages"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

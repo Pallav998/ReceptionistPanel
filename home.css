@@ -1,0 +1,88 @@
+.hero-box {
+  max-width: 100vw;
+  height: 100vh;
+  border: 1px solid #f0efef;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.hero-box h1 {
+  font-size: 25px;
+  margin-top: 35px;
+  margin-left: 20px;
+  color: rgb(236, 46, 46);
+}
+.mid-part {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.left {
+  width: 40%;
+  background-color: #cdc8c8;
+  padding-left: 5px;
+  font-size: 14px;
+}
+.left i {
+  padding: 6px;
+  color: rgb(45, 46, 47);
+}
+.right {
+  width: 36%;
+  background-color: #cdc8c8;
+  padding-left: 5px;
+  font-size: 14px;
+  padding: 8px;
+  display: flex;
+  gap: 5px;
+}
+
+.right h3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-right: 2px solid black;
+  padding: 6px;
+}
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 35px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+.page-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.page-check button {
+  width: 80px;
+  padding: 5px;
+  background-color: #ccc;
+  color: black;
+  border: none;
+}

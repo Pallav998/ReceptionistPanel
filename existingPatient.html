@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Existing Patient</title>
+    <link rel="stylesheet" href="existingPatient.css" />
+  </head>
+  <body>
+    <div class="hero-box">
+      <div class="first-part">
+        <h2>Existing Patient</h2>
+        <button onclick="checkPatient()">
+          Check <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div class="mid-part">
+        <div class="patient-info">
+          <div class="input-row">
+            <p>Patient ID:</p>
+            <input type="text" id="searchId" />
+          </div>
+          <div class="input-row">
+            <p>Patient Name:</p>
+            <input type="text" id="searchName" />
+          </div>
+          <div class="input-row">
+            <p>Reason of Visit:</p>
+            <input type="text" id="searchReason" />
+          </div>
+        </div>
+        <div class="time-date">
+          <div class="input-row">
+            <p>Date:</p>
+            <input type="text" id="searchDate" />
+          </div>
+          <div class="input-row">
+            <p>Time:</p>
+            <input type="text" id="searchTime" />
+          </div>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Patient</th>
+            <th>Patient ID</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reason of Visit</th>
+            <th>View</th>
+            <th>Add to Opd Queue</th>
+          </tr>
+        </thead>
+
+        <tbody id="patientTableBody"></tbody>
+
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>Manoj Jena</td>
+          <td>12345</td>
+          <td>2024-04-13</td>
+          <td>10:00 AM</td>
+          <td>Checkup</td>
+          <td><button>View</button></td>
+          <td><button>Add</button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>Tejaswini Mohanty</td>
+          <td>67890</td>
+          <td>2024-04-14</td>
+          <td>11:00 AM</td>
+          <td>Follow-up</td>
+          <td><button>View</button></td>
+          <td><button>Add</button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>Anjali Gupta</td>
+          <td>47890</td>
+          <td>2024-04-15</td>
+          <td>10:00 AM</td>
+          <td>Follow-up</td>
+          <td><button>View</button></td>
+          <td><button>Add</button></td>
+        </tr>
+      </table>
+
+      <div class="page-check">
+        <button onclick="previousPage()">Previous</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+  </body>
+</html>

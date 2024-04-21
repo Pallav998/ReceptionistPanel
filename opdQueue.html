@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opd Queue</title>
+    <link rel="stylesheet" href="opdQueue.css">
+    <link rel="stylesheet" href="additional-details.html">
+</head>
+<body>
+    <div class="opd-queue">
+        <div class="search-container">
+            <input type="text" placeholder="Search.." id="search-input">
+            <button type="button" id="search-button">Search</button>
+        </div>
+        <h2 class="opd-heading">OPD Queue</h2>
+        <table>
+            <tr>
+                <th><input type="checkbox" id="selectAll"> Select </th>
+                <th>Patients</th>
+                <th>Patient ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason of Visit</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="patient_checkbox"></td>
+                <td>Tejaswini Mohanty</td>
+                <td>88i6t</td>
+                <td>2024-04-14</td>
+                <td>10:30 AM</td>
+                <td>Skin Allergy</td>
+                <td><span class="blue-box view">View</span> <span class="blue-box remove">Remove</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="patient_checkbox"></td>
+                <td>Aranya ku. Nath</td>
+                <td>89i6t</td>
+                <td>2024-04-14</td>
+                <td>11:00 AM</td>
+                <td>Fever</td>
+                <td><span class="blue-box view">View</span> <span class="blue-box remove">Remove</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="patient_checkbox"></td>
+                <td>Indubhushan Sahoo</td>
+                <td>69i6t</td>
+                <td>2024-04-14</td>
+                <td>11:30 AM</td>
+                <td>Joint Pain</td>
+                <td><span class="blue-box view">View</span> <span class="blue-box remove">Remove</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="patient_checkbox"></td>
+                <td>Manoj Ku. Jena</td>
+                <td>69i7t</td>
+                <td>2024-04-14</td>
+                <td>11:35 AM</td>
+                <td>Kidney Stone</td>
+                <td><span class="blue-box view">View</span> <span class="blue-box remove">Remove</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="patient_checkbox"></td>
+                <td>Ramakant Mishra</td>
+                <td>69i8t</td>
+                <td>2024-04-14</td>
+                <td>12:00 PM</td>
+                <td>Myopia</td>
+                <td><span class="blue-box view">View</span> <span class="blue-box remove">Remove</span></td>
+            </tr>
+        </table>
+        <div class="pagination">
+            <a href="additional-details.html" id="next">Next</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for displaying patient details -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Patient Details</h2>
+        <div id="patient-details"></div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // View button click event
+        const viewButtons = document.querySelectorAll('.view');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const patientId = button.parentElement.parentElement.querySelector('td:nth-child(3)').textContent;
+                const patientName = button.parentElement.parentElement.querySelector('td:nth-child(2)').textContent;
+                const patientDetails = {
+                    id: patientId,
+                    name: patientName,
+                    // You can fetch other details from the server using AJAX or retrieve from local data
+                    // For demonstration, let's assume patient details are stored locally
+                    // Replace the following details with actual patient details
+                    date: '2024-04-14',
+                    time: '10:30 AM',
+                    reason: 'Fever'
+                };
+                showModal(patientDetails);
+            });
+        });
+
+        // Select the "Select All" checkbox
+        const selectAllCheckbox = document.getElementById('selectAll');
+            
+        // Add click event listener to the "Select All" checkbox
+        selectAllCheckbox.addEventListener('click', function() {
+            // Select all checkboxes in the table
+            const patientCheckboxes = document.querySelectorAll('.opd-queue table input[type="checkbox"]');
+                
+            // Loop through each checkbox and toggle its checked state
+            patientCheckboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+
+        // Search button click event
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+
+        searchButton.addEventListener('click', function() {
+            const searchText = searchInput.value.toLowerCase().trim();
+            const patientRows = document.querySelectorAll('.opd-queue table tr');
+            patientRows.forEach(row => {
+                const patientName = row.cells[1].textContent.toLowerCase();
+                const patientId = row.cells[2].textContent.toLowerCase();
+                if (patientName.includes(searchText) || patientId.includes(searchText)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Function to show modal with patient details
+        function showModal(patientDetails) {
+            const modal = document.getElementById('myModal');
+            const patientDetailsDiv = document.getElementById('patient-details');
+            patientDetailsDiv.innerHTML = `
+                <p><strong>Patient Name:</strong> ${patientDetails.name}</p>
+                <p><strong>Patient ID:</strong> ${patientDetails.id}</p>
+                <p><strong>Date:</strong> ${patientDetails.date}</p>
+                <p><strong>Time:</strong> ${patientDetails.time}</p>
+                <p><strong>Reason of Visit:</strong> ${patientDetails.reason}</p>
+            `;
+            modal.style.display = "block";
+
+            // Close the modal when the close button is clicked
+            const closeBtn = modal.querySelector('.close');
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // Close the modal when clicking outside of it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

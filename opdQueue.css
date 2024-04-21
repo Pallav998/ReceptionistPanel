@@ -1,0 +1,117 @@
+body {
+  width: calc(100vw-220px);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.opd-queue {
+  width: 94%;
+  padding: 80px 40px;
+  background-color: #fff;
+}
+
+.opd-heading {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px 20px;
+}
+
+.opd-queue table {
+  margin-top: 100px; /* Add margin to move the table downwards */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.blue-box {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.blue-box:hover {
+  background-color: #2980b9;
+}
+
+.pagination {
+  margin-bottom: auto;
+  text-align: center;
+  margin-top: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.pagination a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.page-number {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.page-number-box {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.page-number.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.search-container {
+  position: relative;
+  float: right;
+  margin-top: auto;
+  margin-right: auto;
+}
+.search-container input[type="text"] {
+  padding: 6px;
+  margin-top: 0px;
+  font-size: 17px;
+  border: none;
+}
+.search-container button {
+  padding: 5px 10px;
+  margin-top: 0px;
+  margin-right: 0px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}

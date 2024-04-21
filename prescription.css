@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #fff;
+  
+}
+
+form {
+  height: 800px;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #d1d0d0;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+
+
+}
+form h1 {
+  text-align: start;
+  color: black;
+  font-size: 30px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"],
+textarea {
+  width: 75%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #dfdede;
+}
+.detail-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.patient-info,
+.complaints-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 48%; 
+}
+
+.patient-info div,
+.complaints-info div {
+  display: flex;
+  align-items: center;
+}
+
+.patient-info label,
+.complaints-info label {
+  flex: 1;
+  text-align: start;
+  margin-right: 10px;
+}
+
+.patient-info input,
+.complaints-info input,
+.complaints-info textarea {
+  flex: 2;
+  width: 100%;
+}
+
+.complaints-info textarea {
+  height: 40px; /
+}
+.complaints-info .date input{
+padding: 8px;
+border: none;
+border-radius: 6px;
+background-color: #e6e5e5;
+}
+
+table {
+  margin: 40px auto 20px;
+  width: 80%;
+  border-collapse: collapse;
+  background-color: #c8cacd;
+  
+}
+th,
+td {
+  border: 1px solid rgb(73, 73, 73);
+  padding: 7px;
+  text-align: left;
+}
+th {
+  background-color: #dbdada;
+}
+.button-container{
+ text-align: right;
+ padding: 5px;
+}
+.add, .delete {
+  border: none;
+  background-color: #000;
+  color: #d6d4d4;
+  border-radius: 50%;
+  padding: 5px 8px;
+  font-weight: bolder;
+  cursor: pointer;
+  
+}
+
+.add:hover {
+  background-color: #606060;
+}
+.delete:hover {
+  background-color: #606060;
+}
+
+.bottom-part {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+.advice {
+  font-weight: bold;
+  width: 47%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.save{
+  width: 62px;
+  padding: 7px;
+  background-color: #64a4e9;
+  color: #000;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.save:hover {
+  background-color: #2675c9;
+}
+
+
+

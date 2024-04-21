@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Billing section styling */
+.billing-section {
+  width: calc(100vw-220px);
+  height: calc(80vh - 25px);
+  background-color: #ffffff;
+  padding: 50px;
+}
+
+.billing-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: black;
+}
+
+.billing-subheading {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #666;
+}
+
+.frame1 {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: calc(100% - 24px);
+  float: left;
+}
+
+.frame1 label {
+  font-size: 16px;
+  display: inline-block;
+  width: 30%;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 8px;
+}
+
+.frame1 .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.frame1 .row .col {
+  width: 48%;
+  margin-right: 4%;
+}
+
+.frame1 .row .col:last-child {
+  margin-right: 0;
+}
+
+.frame1 .row .col label {
+  width: auto;
+  margin-right: 10px;
+}
+
+.frame1 .row .col input[type="text"],
+.frame1 .row .col input[type="date"],
+.frame1 .row .col input[type="number"],
+.frame1 .row .col select {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Submit button styling */
+.submit-btn {
+  text-align: center;
+}
+
+.submit-btn button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn button:hover {
+  background-color: #45a049;
+}
+
+/* Invoice table styling */
+.invoice-section {
+  margin-top: 20px;
+}
+
+.invoice-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-size: 16px;
+}
+
+td {
+  font-size: 14px;
+}
