@@ -18,7 +18,6 @@
       </p>
 
       <div class="frame1">
-        <!-- Billing form -->
         <div class="row">
           <div class="col">
             <label for="patientId">Patient ID:</label>
@@ -95,22 +94,7 @@
         </div>
       </div>
 
-      <!-- Invoice section -->
-      <div class="invoice-section">
-        <h2>Invoice</h2>
-        <table id="invoiceTable">
-          <thead>
-            <tr>
-              <th>Invoice ID</th>
-              <th>Billing Date</th>
-              <th>Patient's Name</th>
-              <th>Amount</th>
-              <th>Print receipt</th>
-            </tr>
-          </thead>
-          <tbody id="invoiceTableBody"></tbody>
-        </table>
-      </div>
+      <button onclick="loadPage('invoice.html')">Invoice</button>
     </div>
 
     <script>
